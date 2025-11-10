@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 350">
+  <style>
+    .txt {
+      font-family: "Times New Roman", Georgia, serif;
+      font-weight: 700;
+      font-size: 190px;
+      fill: #7EAEBD;
+    }
+  </style>
+
+  <text x="165" y="200" class="txt">ANIZOR</text>
+
+  <path d="
+      M110 205
+      C 130 320, 380 330, 520 245
+      C 600 200, 660 200, 740 250
+    " stroke="#7EAEBD" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>

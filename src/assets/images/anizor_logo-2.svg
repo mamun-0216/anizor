@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150">
+  <style>
+    .txt {
+      font-family: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: 600;
+      letter-spacing: 2px;
+      fill: #7EAEBD;
+    }
+  </style>
+
+  <path d="
+    M60 115 L90 35 L120 115
+    M75 85 L105 85
+  " stroke="#7EAEBD" stroke-width="10" fill="none" stroke-linecap="round"></path>
+
+  <text x="140" y="115" class="txt" font-size="90">
+    NIZOR
+  </text>
+</svg>
