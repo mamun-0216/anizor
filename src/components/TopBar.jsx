@@ -22,31 +22,29 @@ const TopBar = () => {
   }, []);
 
   return (
-    <div className="w-full bg-[#D4F4F0] text-gray-800 text-xs sm:text-sm md:text-base font-[Calibri] fixed top-0 left-0 z-50 border-b border-gray-200">
+    <div className="w-full bg-[#D4F4F0] text-gray-800 text-sm font-[Calibri] fixed top-0 left-0 z-50 border-b border-gray-200">
 
-      {/* ✅ Container */}
-      <div className="w-full flex flex-col md:flex-row items-center justify-between gap-1 px-4 md:px-6 py-1">
+      <div className="w-full h-10 flex items-center justify-between px-4 md:px-6">
 
-        {/* ✅ LEFT */}
-        <div className="flex items-center gap-4 md:gap-8 whitespace-nowrap">
+        {/* ✅ LEFT SECTION → HIDDEN ON MOBILE */}
+        <div className="hidden sm:flex items-center gap-8 flex-none min-w-[380px]">
           <div className="flex items-center gap-2">
-            <FaPhone size={16} className="text-gray-700" />
+            <FaPhone size={14} className="text-gray-700" />
             <span className="text-lg font-medium text-gray-800">
               +8801717196665
             </span>
           </div>
 
-          {/* Email hidden on mobile */}
-          <div className="hidden sm:flex items-center gap-2">
-            <MdEmail size={18} className="text-gray-700" />
+          <div className="flex items-center gap-2">
+            <MdEmail size={16} className="text-gray-700" />
             <span className="text-lg font-medium text-gray-800">
               contact@anizor.com
             </span>
           </div>
         </div>
 
-        {/* ✅ CENTER — FIXED */}
-        <div className="relative flex-1 flex items-center justify-center overflow-hidden">
+        {/* ✅ CENTER — Always Visible */}
+        <div className="flex flex-1 justify-center overflow-hidden">
           <AnimatePresence mode="wait">
             <motion.p
               key={`msg-${index}`}
@@ -54,19 +52,17 @@ const TopBar = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.45, ease: "easeOut" }}
-              className="text-[13px] sm:text-sm md:text-base font-[Verdana] font-bold not-italic text-gray-700 whitespace-nowrap text-center"
+              className="text-base font-[Verdana] font-bold text-gray-700 whitespace-nowrap"
             >
               {messages[index]}
             </motion.p>
           </AnimatePresence>
         </div>
 
-        {/* ✅ RIGHT */}
-        <div className="flex items-center gap-2 whitespace-nowrap cursor-pointer hover:text-gray-600">
-          <MdLocationOn size={18} className="text-gray-700" />
-          <span className="text-lg font-medium text-gray-800">
-            Find Us
-          </span>
+        {/* ✅ RIGHT — Always Visible */}
+        <div className="flex items-center gap-2 flex-none min-w-[120px] justify-end cursor-pointer hover:text-gray-600 whitespace-nowrap">
+          <MdLocationOn size={16} className="text-gray-700" />
+          <span className="text-lg font-medium text-gray-800">Find Us</span>
         </div>
 
       </div>
