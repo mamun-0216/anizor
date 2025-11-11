@@ -22,11 +22,10 @@ const TopBar = () => {
   }, []);
 
   return (
-    <div className="w-full bg-[#D4F4F0] text-gray-800 text-sm font-[Calibri] fixed top-0 left-0 z-50 border-b border-gray-200">
-      
+    <div className="w-full bg-[#D4F4F0] text-gray-800 text-sm font-[Calibri] border-b border-gray-200">
       <div className="w-full h-10 flex items-center px-4 md:px-6">
-
-        {/* ✅ LEFT — Desktop Only */}
+        
+        {/* LEFT (Desktop) */}
         <div className="hidden md:flex items-center gap-8 flex-none min-w-[380px]">
           <div className="flex items-center gap-2">
             <FaPhone size={14} className="text-gray-700" />
@@ -43,7 +42,7 @@ const TopBar = () => {
           </div>
         </div>
 
-        {/* ✅ CENTER — Visible on ALL devices */}
+        {/* CENTER (Mobile + Desktop) */}
         <div className="flex flex-1 justify-center overflow-hidden">
           <AnimatePresence mode="wait">
             <motion.p
@@ -59,7 +58,7 @@ const TopBar = () => {
           </AnimatePresence>
         </div>
 
-        {/* ✅ RIGHT — Desktop Only */}
+        {/* RIGHT (Desktop only) */}
         <div className="hidden md:flex items-center gap-2 flex-none min-w-[120px] justify-end cursor-pointer hover:text-gray-600 whitespace-nowrap">
           <MdLocationOn size={16} className="text-gray-700" />
           <span className="text-lg font-medium text-gray-800">Find Us</span>

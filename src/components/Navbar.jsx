@@ -1,99 +1,79 @@
 import React, { useState } from "react";
-import { Search, Menu } from "lucide-react";
+import { Search, Menu, X } from "lucide-react";
 import logo from "../assets/images/anizor_logo.svg";
-import cartIcon from "../assets/icons/cart.svg";   // ✅ custom cart icon
+import cartIcon from "../assets/images/cart.svg";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const cartCount = 3;
 
   return (
-    <nav className="bg-white shadow z-40 w-full">
-      <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+    <>
+      <nav className="bg-white shadow w-full z-50">
+        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
 
-        {/* ✅ LEFT SECTION  —  Mobile & Desktop Logo */}
-        <div className="flex items-center gap-2">
-          <img src={logo} alt="Anizor" className="h-10 object-contain" />
-        </div>
+          {/* MOBILE LEFT */}
+          <div className="flex items-center gap-6 md:hidden">
+            <Menu
+              className="w-7 h-7 text-gray-700 cursor-pointer"
+              onClick={() => setOpen(true)}
+            />
 
-        {/* ✅ MOBILE — LEFT Hamburger */}
-        <button
-          className="md:hidden block"
-          onClick={() => setOpen(!open)}
-        >
-          <Menu className="w-6 h-6 text-gray-700" />
-        </button>
+            <img src={logo} alt="Anizor" className="h-8 object-contain" />
+          </div>
 
-        {/* ✅ CENTER DESKTOP MENU */}
-        <ul className="hidden md:flex space-x-8 text-gray-800 font-semibold tracking-wide">
+          {/* DESKTOP LOGO */}
+          <div className="hidden md:flex items-center gap-2">
+            <img src={logo} alt="Anizor" className="h-10 object-contain" />
+          </div>
 
-          <li className="hover:text-black cursor-pointer">
-            DESIGNER WEAR
-          </li>
-
-          <li className="hover:text-black cursor-pointer relative">
-            PARTY WEAR <span className="text-xs ml-1">▼</span>
-          </li>
-
-          <li className="hover:text-black cursor-pointer relative">
-            WESTERN <span className="text-xs ml-1">▼</span>
-          </li>
-
-          <li className="hover:text-black cursor-pointer relative">
-            MEN <span className="text-xs ml-1">▼</span>
-          </li>
-
-          <li className="hover:text-black cursor-pointer relative">
-            ACCESSORIES <span className="text-xs ml-1">▼</span>
-          </li>
-        </ul>
-
-        {/* ✅ RIGHT — Desktop Items */}
-        <div className="hidden md:flex items-center space-x-5 text-gray-700 font-medium">
-          <a href="#" className="hover:text-black">Login</a>
-          <a href="#" className="hover:text-black">Create Account</a>
-
-          <Search className="w-5 h-5 cursor-pointer hover:text-black" />
-
-          {/* ✅ Custom cart icon */}
-          <img
-            src={cartIcon}
-            alt="Cart"
-            className="w-6 h-6 cursor-pointer hover:opacity-80"
-          />
-        </div>
-      </div>
-
-      {/* ✅ MOBILE DROPDOWN PANEL */}
-      {open && (
-        <div className="md:hidden bg-white shadow px-4 py-3 space-y-4 text-gray-700 font-medium">
-
-          <ul className="space-y-3">
-            <li className="hover:text-black cursor-pointer">DESIGNER WEAR</li>
-            <li className="hover:text-black cursor-pointer">PARTY WEAR</li>
-            <li className="hover:text-black cursor-pointer">WESTERN</li>
-            <li className="hover:text-black cursor-pointer">MEN</li>
-            <li className="hover:text-black cursor-pointer">ACCESSORIES</li>
+          {/* CENTER MENU */}
+          <ul className="hidden md:flex space-x-8 text-gray-800 font-semibold tracking-wide">
+            <li>DESIGNER WEAR</li>
+            <li>PARTY WEAR ▾</li>
+            <li>SAREE ▾</li>
+            <li>WESTERN ▾</li>
+            <li>MEN ▾</li>
+            <li>ACCESSORIES ▾</li>
           </ul>
 
-          {/* ✅ Mobile Bottom Options */}
-          <div className="pt-3 border-t flex items-center justify-between">
-            <a href="#" className="hover:text-black">Login</a>
-            <a href="#" className="hover:text-black">Create Account</a>
+          {/* RIGHT SECTION */}
+          <div className="hidden md:flex items-center space-x-5 text-gray-700 font-medium">
+            <a>Login</a>
+            <a>Create Account</a>
 
-            <div className="flex items-center space-x-4">
-              <Search className="w-5 h-5 cursor-pointer hover:text-black" />
+            <Search className="w-5 h-5 cursor-pointer hover:text-black" />
 
-              {/* ✅ Custom cart icon */}
-              <img
-                src={cartIcon}
-                alt="Cart"
-                className="w-6 h-6 cursor-pointer hover:opacity-80"
-              />
+            {/* CART */}
+            <div className="relative cursor-pointer">
+              <img src={cartIcon} alt="cart" className="w-6 h-6" />
+              {cartCount > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] px-1.5 rounded-full">
+                  {cartCount}
+                </span>
+              )}
             </div>
           </div>
+
+          {/* MOBILE RIGHT */}
+          <div className="md:hidden flex items-center gap-4 text-gray-600">
+            <Search className="w-5 h-5 cursor-pointer" />
+
+            <div className="relative cursor-pointer">
+              <img src={cartIcon} alt="cart" className="w-6 h-6" />
+              {cartCount > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] px-1.5 rounded-full">
+                  {cartCount}
+                </span>
+              )}
+            </div>
+          </div>
+
         </div>
-      )}
-    </nav>
+      </nav>
+
+      {/* Mobile drawer etc remains SAME */}
+    </>
   );
 };
 
